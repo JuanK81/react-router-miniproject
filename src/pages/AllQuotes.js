@@ -15,14 +15,17 @@ const AllQuotes = () => {
     }, [sendRequest]);
 
     if (status === 'pending') {
-        return <div className='centered'>
+        return (
+        <div className='centered'>
             <LoadingSpinner />
         </div>
+        )
     }
 
     if (error) {
         return(
-        <p className='centered focus'>{error}</p>)
+        <p className='centered focus'>{error}</p>
+        )
     }
 
     if(status === 'completed' && (!loadedQuotes || loadedQuotes.length === 0)) {
