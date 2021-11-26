@@ -1,5 +1,5 @@
 import { Fragment, useEffect } from 'react';
-import { useParams, Route, Link, useRouteMatch } from 'react-router-dom';
+import { useParams, Route, Link, useMatch } from 'react-router-dom';
 import useHttp from '../hooks/use-http';
 import { getSingleQuote } from '../lib/api';
 
@@ -9,7 +9,7 @@ import LoadingSpinner from '../components/UI/LoadingSpinner';
 
 
 const QuoteDetails = () => {
-    const match = useRouteMatch();
+    const match = useMatch();
     const params = useParams();
 
     const { quoteId } = params;
