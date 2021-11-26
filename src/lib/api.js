@@ -63,8 +63,6 @@ export async function addComment(requestData) {
       'Content-Type': 'application/json',
     },
   });
-  console.log('redat',requestData);
-  console.log('res', response);
   const data = await response.json();
 
   if (!response.ok) {

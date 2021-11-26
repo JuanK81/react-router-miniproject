@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { useParams } from 'react-router';
 
 import useHttp from '../../hooks/use-http';
@@ -25,9 +25,9 @@ const Comments = () => {
     setIsAddingComment(true);
   };
   
-  const addedCommetHandler = () => {
-
-  };
+  const addedCommentHandler = useCallback(() => {
+    sendRequest(quoteId);
+  }, [sendRequest, quoteId]);
 
   let comments;
 
@@ -56,10 +56,10 @@ const Comments = () => {
       {isAddingComment && (
         <NewCommentForm 
           quoteId={quoteId} 
-          onAddedComment={addedCommetHandler} 
+          onAddedComment={addedCommentHandler}
       />
       )}
-      <p>Comments...</p>
+      {comments}
     </section>
   );
 };
